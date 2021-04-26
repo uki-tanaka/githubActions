@@ -20,6 +20,10 @@ jobs:
           npm install -g yarn
           yarn -v
         shell: cmd
+      - name: Yarn version
+        run: |
+          yarn -v
+        shell: cmd
       # # リリース
       # - name: Create release
       #   id: create_release
