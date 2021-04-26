@@ -14,7 +14,7 @@ jobs:
         run: |
           dir
           cd test
-          zip release memo
+          zip -r release memo
       # リリース
       - name: Create release
         id: create_release
