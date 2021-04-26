@@ -1,10 +1,39 @@
 name: learn-github-actions
-on: [push]
+on:
+  push:
+    tags:
+      - v1 # Push events to v1 tag
+      - v1.* # Push events to v1.0, v1.1, and v1.9 tags
 jobs:
   check-bats-version:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v1
+      - name: Zip output
+        run: |
+          zip release *.*
+      # リリース作成
+      - name: Create release
+        id: create_release
+        uses: actions/create-release@v1.0.0
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ github.ref }}
+          release_name: Release ${{ github.ref }}
+          draft: false
+          prerelease: false
+      # リリース内容の登録
+      - name: Upload Release Asset
+        id: upload-release-asset
+        uses: actions/upload-release-asset@v1.0.1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ./release.zip
+          asset_name: test.zip
+          asset_content_type: application/zip
       - run: npm install -g bats
       - run: bats -v
