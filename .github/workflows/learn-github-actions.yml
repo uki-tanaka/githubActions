@@ -24,6 +24,10 @@ jobs:
         run: |
           yarn -v
         shell: cmd
+      - name: Set Proxy
+        run: |
+          set
+        shell: cmd
       # リリース
       - name: Create release
         id: create_release
