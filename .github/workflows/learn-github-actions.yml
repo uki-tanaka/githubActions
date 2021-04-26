@@ -12,6 +12,7 @@ jobs:
       - uses: actions/setup-node@v1
       - name: Zip output
         run: |
+          dir
           zip release *.*
       # リリース
       - name: Create release
@@ -35,5 +36,3 @@ jobs:
           asset_path: ./release.zip
           asset_name: test.zip
           asset_content_type: application/zip
-      - run: npm install -g bats
-      - run: bats -v
