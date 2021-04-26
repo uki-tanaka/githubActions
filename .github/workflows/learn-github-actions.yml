@@ -16,9 +16,7 @@ jobs:
           node-version: "12.x"
       - name: Yarn build
         run: |
-          dir
           npm install -g yarn
-          yarn -v
         shell: cmd
       - name: Yarn version
         run: |
@@ -30,11 +28,7 @@ jobs:
         shell: cmd
       - name: Check Proxy
         run: |
-          npm config list
-        shell: cmd
-      - name: Set
-        run: |
-          set
+          echo %GLOBAL_AGENT_HTTPS_PROXY%
         shell: cmd
       # リリース
       - name: Create release
