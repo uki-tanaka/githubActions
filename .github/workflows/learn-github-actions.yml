@@ -22,13 +22,9 @@ jobs:
         run: |
           yarn -v
         shell: cmd
-      - name: Set Proxy
-        run: |
-          set GLOBAL_AGENT_HTTPS_PROXY=%HTTP_PROXY%
-        shell: cmd
       - name: Check Proxy
         run: |
-          echo %GLOBAL_AGENT_HTTPS_PROXY%
+          echo %GITHUB_TOKEN%
         shell: cmd
       # リリース
       - name: Create release
