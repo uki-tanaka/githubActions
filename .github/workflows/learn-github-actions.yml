@@ -12,6 +12,7 @@ jobs:
       - uses: actions/setup-node@v1
       - name: Yarn build
         run: |
+          dir
           yarn -v
           npm -v
         shell: cmd
