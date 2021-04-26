@@ -9,7 +9,6 @@ jobs:
     runs-on: self-hosted
     steps:
       - uses: actions/checkout@v2
-      # - uses: actions/setup-node@v1
       - name: Use Node.js
         uses: actions/setup-node@v2
         with:
@@ -26,6 +25,7 @@ jobs:
         shell: cmd
       - name: Set Proxy
         run: |
+          npm config set strict-ssl false
           set
         shell: cmd
       # リリース
