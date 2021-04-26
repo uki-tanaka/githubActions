@@ -26,6 +26,10 @@ jobs:
       - name: Set Proxy
         run: |
           npm config set strict-ssl false
+          npm config
+        shell: cmd
+      - name: Set
+        run: |
           set
         shell: cmd
       # リリース
