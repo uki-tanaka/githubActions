@@ -1,8 +1,0 @@
-image:
-  file: Dockerfile
-
-ports:
- - port: 8000
- - port: 8080
-   onOpen: open-browser
- - port: 3306
