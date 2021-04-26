@@ -10,11 +10,12 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v1
-      - name: Zip output
+      - name: Yarn build
         run: |
+          yarn -v
           dir
-          cd test
-          zip -r release memo
+          zip release test
+          # zip -r release memo
       # リリース
       - name: Create release
         id: create_release
