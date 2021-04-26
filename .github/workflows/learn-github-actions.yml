@@ -13,8 +13,8 @@ jobs:
       - name: Zip output
         run: |
           dir
-          cd test/memo
-          zip release
+          cd test
+          zip release memo
       # リリース
       - name: Create release
         id: create_release
@@ -34,6 +34,6 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ./test/memo/release.zip
+          asset_path: ./test/release.zip
           asset_name: test.zip
           asset_content_type: application/zip
