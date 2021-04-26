@@ -38,33 +38,12 @@ jobs:
       # リリース内容の登録その1
       - name: Upload Release Asset1
         id: upload-release-asset
+        # 以下の奴は複数回使えないので注意
         uses: actions/upload-release-asset@v1.0.1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
           asset_path: ./test1.vsix
-          asset_name: test1.vsix
-          asset_content_type: application/vsix
-      # リリース内容の登録その2
-      - name: Upload Release Asset2
-        id: upload-release-asset
-        uses: actions/upload-release-asset@v1.0.1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ./test2.vsix
-          asset_name: test2.vsix
-          asset_content_type: application/vsix
-      # リリース内容の登録その3
-      - name: Upload Release Asset3
-        id: upload-release-asset
-        uses: actions/upload-release-asset@v1.0.1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ./test3.vsix
-          asset_name: test3.vsix
+          asset_name: pack.vsix
           asset_content_type: application/vsix
