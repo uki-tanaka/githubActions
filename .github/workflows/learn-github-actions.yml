@@ -14,7 +14,6 @@ jobs:
         run: |
           dir
           yarn -v
-          npm -v
         shell: cmd
       # # リリース
       # - name: Create release
