@@ -24,7 +24,7 @@ jobs:
         shell: cmd
       - name: Set Proxy
         run: |
-          SET GLOBAL_AGENT_HTTPS_PROXY=%HTTP_PROXY%
+          set GLOBAL_AGENT_HTTPS_PROXY=%HTTP_PROXY%
         shell: cmd
       - name: Check Proxy
         run: |
