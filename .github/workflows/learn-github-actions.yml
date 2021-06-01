@@ -45,5 +45,5 @@ jobs:
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
           asset_path: ./test1.vsix
-          asset_name: pack.vsix
-          asset_content_type: application/vsix
+          asset_name: pack.zip
+          asset_content_type: application/zip
